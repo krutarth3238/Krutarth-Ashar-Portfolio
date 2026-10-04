@@ -1,0 +1,6 @@
+{
+  "name": "Liquid Glass — Krutarth Ashar AI Portfolio",
+  "description": "Apple Liquid Glass interface and interactive portfolio for Krutarth Ashar, AI & Data Science engineer specializing in LLM alignment and geospatial ETL.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,324 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #02020A;
+  --color-ink: #ecebe6;
+  --color-mute: #8a8a85;
+  --color-acc: #003cffff;
+  
+  --color-onyx: #131518;
+  --color-black: #02020A;
+  --color-ocean: #003cffff;
+  --color-sky: #003cffff;
+  --color-baltic: #003cffff;
+}
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  @keyframes float-1 {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(8px, -20px); }
+    66% { transform: translate(-4px, -10px); }
+  }
+  @keyframes float-2 {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(-10px, -18px); }
+    66% { transform: translate(6px, -8px); }
+  }
+  @keyframes float-3 {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(5px, -22px); }
+    66% { transform: translate(-8px, -12px); }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Custom font utilities */
+.font-display {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.font-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.font-mono {
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+}
+
+/* ============================================================
+   TRANSLUCENT SPATIAL GLASSMORPHISM MATERIAL SYSTEM
+   Exact match to the user's reference image
+   ============================================================ */
+
+/* 1. Translucent Liquid Glass Card */
+.spatial-glass-card {
+  position: relative;
+  background: rgba(18, 24, 38, 0.48);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.45),
+    0 8px 20px -4px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
+  border-radius: 28px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #f8fafc;
+}
+
+.spatial-glass-card:hover {
+  background: rgba(22, 30, 46, 0.58);
+  border-color: rgba(255, 255, 255, 0.26);
+  box-shadow: 
+    0 28px 60px -10px rgba(0, 113, 227, 0.22),
+    0 12px 28px -4px rgba(0, 0, 0, 0.35),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* 2. Translucent Spatial Navigation Dock */
+.spatial-nav-dock {
+  background: rgba(18, 24, 38, 0.55);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 18px 40px -8px rgba(0, 0, 0, 0.5),
+    0 6px 16px -2px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  color: #f8fafc;
+}
+
+/* 3. Translucent Spatial Glass Pill */
+.spatial-glass-pill {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #e2e8f0;
+}
+
+.spatial-glass-pill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 113, 227, 0.18);
+}
+
+/* 4. White Solid Pill Button */
+.spatial-white-button {
+  position: relative;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  border-radius: 9999px;
+  box-shadow: 
+    0 10px 25px -4px rgba(0, 0, 0, 0.35),
+    0 4px 10px -2px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spatial-white-button:hover {
+  background: #f1f5f9;
+  transform: translateY(-1.5px) scale(1.02);
+  box-shadow: 
+    0 14px 32px -4px rgba(0, 113, 227, 0.4),
+    0 6px 14px -2px rgba(0, 0, 0, 0.3);
+}
+
+.spatial-white-button:active {
+  transform: translateY(0.5px) scale(0.98);
+}
+
+/* 5. Translucent Glass Button */
+.spatial-glass-button {
+  position: relative;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
+  border-radius: 9999px;
+  box-shadow: 
+    0 4px 14px -2px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 500;
+}
+
+.spatial-glass-button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #38bdf8;
+  box-shadow: 
+    0 8px 20px -3px rgba(0, 113, 227, 0.25),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* 6. Hairline Divider */
+.spatial-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.14) 20%, 
+    rgba(255, 255, 255, 0.14) 80%, 
+    transparent 100%
+  );
+}
+
+/* 7. Code Blocks & Terminal */
+.spatial-code-block {
+  background: rgba(11, 15, 25, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: #93c5fd;
+}
+
+/* Glass Modal Smooth Scrollbar */
+.glass-modal-scroll {
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.glass-modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.glass-modal-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 9999px;
+  margin: 12px 0;
+}
+
+.glass-modal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+
+.glass-modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.6);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================
+   NEW DESIGN SYSTEM — appended, spatial-* classes above preserved
+   ============================================================ */
+
+/* Lenis smooth scroll integration */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Typography */
+.disp { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -.02em; }
+.ser  { font-family: 'Instrument Serif', serif; font-weight: 400; }
+
+/* Reveal animation helpers */
+.mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.word { display: inline-block; will-change: transform; }
+[data-fade] { opacity: 0; }
+
+/* Tech-stack marquee */
+.marquee { animation: mq 40s linear infinite; }
+@keyframes mq { to { transform: translateX(-50%); } }
+
+/* Custom cursor: hide the system cursor on desktop */
+@media (hover: hover) and (pointer: fine) { body, a, button { cursor: none; } }
+
+/* Letter-roll and letter-swap animations */
+.roll-c, .swap-c { display: inline-block; overflow: hidden; height: 1.2em; line-height: 1.2; vertical-align: top; }
+.roll-c > span { display: block; transition: transform .7s cubic-bezier(.16,1,.3,1); transition-delay: calc(var(--i) * 22ms); }
+.roll-c > span:last-child { color: var(--color-acc); }
+.roll-host:hover .roll-c > span { transform: translateY(-100%); }
+.swap-c > span { display: block; animation: up .9s cubic-bezier(.16,1,.3,1) both; animation-delay: calc(var(--i) * 28ms); }
+@keyframes up { from { transform: translateY(105%); } }
+
+/* Fan card skew (Skills section) */
+.fan-skew {
+  transform: skewY(-28deg) translateY(var(--ty, 0px));
+  transition: transform .7s cubic-bezier(.16,1,.3,1), border-color .4s, background .4s;
+}
+
+/* Fade-in keyframe for skill detail grid swap */
+.fadein { animation: fi .7s cubic-bezier(.16,1,.3,1) both; }
+@keyframes fi { from { opacity: 0; transform: translateY(16px); } }
+
+/* Reduced-motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  [data-fade]  { opacity: 1; }
+  .marquee     { animation: none; }
+  .roll-c > span, .swap-c > span { animation: none; transition: none; }
+}

@@ -8,7 +8,7 @@ A premium, highly interactive portfolio website showcasing my work in Artificial
 - **Responsive Design:** A custom glassmorphic UI system built with Tailwind CSS v4, entirely responsive and tailored for both desktop and mobile experiences.
 
 ## 🚀 Live Demo
-*(Add your Vercel deployment link here! e.g., https://krutarth-ashar-ai.vercel.app)*
+**[krutarth-ashar-portfolio.vercel.app](https://krutarth-ashar-portfolio.vercel.app)**
 
 ## 🛠️ Run Locally
 
